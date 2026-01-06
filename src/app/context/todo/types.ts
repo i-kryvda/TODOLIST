@@ -1,5 +1,17 @@
 import { Dispatch } from "react";
-import { ACTIONS } from "@app/context/todo/TodoProvider";
+
+export const ACTIONS = {
+  CREATE: "CREATE_TODO",
+  DELETE: "DELETE_TODO",
+  SET_TODO_TO_DELETE: "SET_TODO_TO_DELETE",
+  DONE: "TOGGLE_COMPLETE",
+  EDIT: "TOGGLE_EDIT",
+  UPDATE: "UPDATE_TODO",
+  PINNED: "TOGGLE_PINNED",
+  PINNED_OFF: "DELETE_PINNED",
+  PALETTE: "SET_COLOR",
+  SET_FILTER_COLOR: "SET_FILTER_COLOR",
+} as const;
 
 export interface TodoItem {
   id: string;
@@ -12,7 +24,7 @@ export interface TodoItem {
 
 export type State = {
   todos: TodoItem[];
-  todoToDelete: TodoItem | null;
+  selectedTodo: TodoItem | null;
   filterColor: string;
 };
 export type Action =
@@ -34,7 +46,7 @@ type ProcessedTodos = {
 
 export type TodoContextType = {
   todos: TodoItem[];
-  todoToDelete: TodoItem | null;
+  selectedTodo: TodoItem | null;
   filterColor: string;
   dispatch: Dispatch<Action>;
   processedTodos: ProcessedTodos;

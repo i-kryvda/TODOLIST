@@ -18,7 +18,6 @@ export default defineConfig({
       "@entities": "/src/components/entities",
 
       //---------------------------------------
-
       "@atoms": "/src/components/atoms",
       "@molecules": "/src/components/molecules",
       "@organisms": "/src/components/organisms",

@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { ACTIONS } from "./TodoProvider";
+import { ACTIONS } from "./types";
 import { TodoItem } from "@app/context/todo/types";
 
 export const createTodo = (text: string) => {

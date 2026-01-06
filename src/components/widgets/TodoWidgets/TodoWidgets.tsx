@@ -8,12 +8,12 @@ import { deleteTodo, clearTodoToDelete } from "@app/context/todo/actions";
 import { toast } from "react-toastify";
 
 export default function TodoWidgets() {
-  const { todoToDelete, dispatch } = useTodos();
+  const { selectedTodo, dispatch } = useTodos();
 
   const onDeleteTodo = () => {
     toast.info("DELETE");
-    if (!todoToDelete) return;
-    dispatch(deleteTodo(todoToDelete.id));
+    if (!selectedTodo) return;
+    dispatch(deleteTodo(selectedTodo.id));
     dispatch(clearTodoToDelete());
   };
 
@@ -29,7 +29,7 @@ export default function TodoWidgets() {
           <TodoList />
         </div>
       </section>
-      {!!todoToDelete && (
+      {!!selectedTodo && (
         <TodoConfirmModal onConfirm={onDeleteTodo} onCansel={onCanselDelete} />
       )}
     </main>
